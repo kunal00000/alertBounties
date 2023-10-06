@@ -13,7 +13,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 const client = new Twilio(accountSid, authToken);
 
-(async () => {
+const main = async () => {
   const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
 
@@ -58,8 +58,8 @@ const client = new Twilio(accountSid, authToken);
     };
 
     fs.writeFileSync(
-        path.join(__dirname, "../src/data.json"),
-        JSON.stringify(latestBounty)
+      path.join(__dirname, "../src/data.json"),
+      JSON.stringify(latestBounty)
     );
 
     const sIssues = await page.$$eval(
@@ -122,4 +122,6 @@ const client = new Twilio(accountSid, authToken);
   }
 
   await browser.close();
-})();
+};
+
+setInterval(main, 60000 * 5);

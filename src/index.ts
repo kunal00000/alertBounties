@@ -124,4 +124,6 @@ const main = async () => {
   await browser.close();
 };
 
-setInterval(main, 60000 * 5);
+main();
+
+// setInterval(main, 60000 * 5);

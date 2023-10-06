@@ -2,7 +2,7 @@ name: Check and Notify for the bounties
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:

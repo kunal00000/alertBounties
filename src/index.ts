@@ -26,6 +26,10 @@ const client = new Twilio(accountSid, authToken);
   });
 
   await page.waitForSelector("td > div > a > .gap-2");
+  await page.evaluate(() => {
+    window.scrollTo(0, 10000);
+  });
+  await page.waitForNetworkIdle({ idleTime: 2500 });
 
   const latestIssue = await page.$eval(
     "td > div > a > div > .font-medium",
@@ -38,10 +42,6 @@ const client = new Twilio(accountSid, authToken);
   const latestLink = await page.$eval("td > div > .w-full", (element) =>
     element.getAttribute("href")
   );
-
-  await page.evaluate(() => {
-    window.scrollTo(0, 10000);
-  });
 
   const lagBounty = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../src/data.json"), "utf8")
@@ -56,13 +56,6 @@ const client = new Twilio(accountSid, authToken);
       desc: latestDesc,
       link: latestLink
     };
-
-    fs.writeFileSync(
-      path.join(__dirname, "../src/data.json"),
-      JSON.stringify(latestBounty)
-    );
-
-    await page.waitForTimeout(3000);
 
     const sIssues = await page.$$eval(
       "td > div > a > div > .font-medium",
@@ -85,6 +78,11 @@ const client = new Twilio(accountSid, authToken);
       const newIssues = sIssues.slice(0, idxTillLastUpdate);
       const newDesc = sDesc.slice(0, idxTillLastUpdate);
       const newLinks = sLinks.slice(0, idxTillLastUpdate);
+
+      fs.writeFileSync(
+        path.join(__dirname, "../src/data.json"),
+        JSON.stringify(latestBounty)
+      );
 
       console.log("Sending notification for new issues");
 

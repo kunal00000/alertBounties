@@ -57,6 +57,11 @@ const client = new Twilio(accountSid, authToken);
       link: latestLink
     };
 
+    fs.writeFileSync(
+        path.join(__dirname, "../src/data.json"),
+        JSON.stringify(latestBounty)
+    );
+
     const sIssues = await page.$$eval(
       "td > div > a > div > .font-medium",
       (elements) => Array.from(elements).map((element) => element.textContent)
@@ -78,11 +83,6 @@ const client = new Twilio(accountSid, authToken);
       const newIssues = sIssues.slice(0, idxTillLastUpdate);
       const newDesc = sDesc.slice(0, idxTillLastUpdate);
       const newLinks = sLinks.slice(0, idxTillLastUpdate);
-
-      fs.writeFileSync(
-        path.join(__dirname, "../src/data.json"),
-        JSON.stringify(latestBounty)
-      );
 
       console.log("Sending notification for new issues");
 

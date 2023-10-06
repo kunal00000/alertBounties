@@ -9,6 +9,9 @@
   },
   "keywords": [],
   "author": "",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "license": "ISC",
   "dependencies": {
     "puppeteer": "^21.3.7",

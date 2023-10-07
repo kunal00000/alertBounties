@@ -2,7 +2,7 @@ name: Check and Notify for the bounties
 
 on:
   schedule:
-    - cron: "*/2 * * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions: write-all

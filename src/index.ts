@@ -104,18 +104,19 @@ const main = async () => {
         message += `${newIssues[i]} > ${newDesc[i]}\n${newLinks[i]}\n\n`;
       }
       // send whatsapp notification for new issues
-      message.length > 1600
-        ? (message = message.slice(0, 1590) + "...")
-        : message;
+      // TODO: whatsapp notification not working outside local
+      // message.length > 1600
+      //   ? (message = message.slice(0, 1590) + "...")
+      //   : message;
 
-      client.messages
-        .create({
-          body: `${message}`,
-          from: "whatsapp:+14155238886",
-          to: "whatsapp:+918851940254"
-        })
-        .then((logmessage) => console.log(logmessage.sid))
-        .catch((err) => console.log(err));
+      // client.messages
+      //   .create({
+      //     body: `${message}`,
+      //     from: "whatsapp:+14155238886",
+      //     to: "whatsapp:+918851940254"
+      //   })
+      //   .then((logmessage) => console.log(logmessage.sid))
+      //   .catch((err) => console.log(err));
     }
   } else {
     console.log("No new issues found");

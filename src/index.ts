@@ -1,5 +1,6 @@
 import express from 'express';
 import fs from 'fs';
+import cron from 'node-cron';
 import path from 'path';
 import puppeteer from 'puppeteer';
 import dotenv from 'dotenv';
@@ -8,14 +9,19 @@ dotenv.config();
 
 const app = express();
 
+cron.schedule('*/1 * * * *', () => {
+  main();
+});
+
 app.get('/', (req: express.Request, res: express.Response) => {
+  main();
   res.send('Hello World!');
 });
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const main = async () => {
-  const browser = await puppeteer.launch({ headless: 'new' });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
   await page.goto('https://console.algora.io/');
@@ -125,10 +131,6 @@ const main = async () => {
 
   await browser.close();
 };
-
-main();
-
-setInterval(main, 60000 * 8);
 
 app.listen(3000, () => {
   console.log('Server listening on port 3000');

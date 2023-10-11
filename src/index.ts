@@ -128,7 +128,7 @@ const main = async () => {
 
 // main();
 
-setInterval(main, 10000);
+setInterval(main, 60000 * 5);
 
 app.listen(3000, () => {
   console.log('Server listening on port 3000');

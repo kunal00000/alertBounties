@@ -15,7 +15,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const main = async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: 'new' });
   const page = await browser.newPage();
 
   await page.goto('https://console.algora.io/');

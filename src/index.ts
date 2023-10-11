@@ -15,7 +15,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const main = async () => {
-  const browser = await puppeteer.launch({ headless: 'new' });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
   await page.goto('https://console.algora.io/');
@@ -128,7 +128,7 @@ const main = async () => {
 
 // main();
 
-setInterval(main, 60000 * 4);
+setInterval(main, 10000);
 
 app.listen(3000, () => {
   console.log('Server listening on port 3000');

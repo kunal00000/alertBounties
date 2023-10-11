@@ -1,40 +1,40 @@
-name: Check and Notify for the bounties
+# name: Check and Notify for the bounties
 
-on:
-  schedule:
-    - cron: "*/30 * * * *"
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: "*/30 * * * *"
+#   workflow_dispatch:
 
-permissions: write-all
+# permissions: write-all
 
-jobs:
-  alert:
-    runs-on: ubuntu-latest
+# jobs:
+#   alert:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "18"
-      - name: Install Dependencies
-        run: npm ci
-      - name: Run Script
-        run: npm run dev
-        env:
-          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-      - name: Commit and Push Changes
-        run: |
-          # Check if there are changes in the working directory
-          if git diff-index --quiet HEAD --; then
-            echo "No changes detected, skipping file update."
-          else
-            # Commit and push changes
-            git config user.email "actions@github.com"
-            git config user.name "GitHub Actions"
-            git add .
-            git commit -m "Update file via GitHub Actions"
-            git push
-          fi
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: "18"
+#       - name: Install Dependencies
+#         run: npm ci
+#       - name: Run Script
+#         run: npm run dev
+#         env:
+#           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+#           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+#           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+#       - name: Commit and Push Changes
+#         run: |
+#           # Check if there are changes in the working directory
+#           if git diff-index --quiet HEAD --; then
+#             echo "No changes detected, skipping file update."
+#           else
+#             # Commit and push changes
+#             git config user.email "actions@github.com"
+#             git config user.name "GitHub Actions"
+#             git add .
+#             git commit -m "Update file via GitHub Actions"
+#             git push
+#           fi

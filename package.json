@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
-    "install:chrome": "node node_modules/puppeteer/install.js",
     "dev": "tsc && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

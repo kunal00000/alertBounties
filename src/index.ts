@@ -84,6 +84,7 @@ const main = async () => {
 
     const idxTillLastUpdate = sIssues.findIndex((l) => l == lagBounty.issue);
 
+    console.log('descriptions - ', sDesc, '\n previous bounty - ', lagBounty);
     if (idxTillLastUpdate === -1) {
       console.log('Some error occurred');
     } else {

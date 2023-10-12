@@ -1,24 +1,17 @@
-import express from 'express';
 import fs from 'fs';
-import cron from 'node-cron';
 import path from 'path';
 import puppeteer from 'puppeteer';
 import dotenv from 'dotenv';
 import { Resend } from 'resend';
+import { Twilio } from 'twilio';
 dotenv.config();
 
-const app = express();
-
-cron.schedule('*/1 * * * *', () => {
-  main();
-});
-
-app.get('/', (req: express.Request, res: express.Response) => {
-  main();
-  res.send('Hello World!');
-});
-
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+
+const client = new Twilio(accountSid, authToken);
 
 const main = async () => {
   const browser = await puppeteer.launch({ headless: 'new' });
@@ -84,7 +77,6 @@ const main = async () => {
 
     const idxTillLastUpdate = sIssues.findIndex((l) => l == lagBounty.issue);
 
-    console.log('descriptions - ', sDesc, '\n previous bounty - ', lagBounty);
     if (idxTillLastUpdate === -1) {
       console.log('Some error occurred');
     } else {
@@ -107,10 +99,10 @@ const main = async () => {
         html: `${htmlmes}`
       });
 
-      let message = 'New issues found\n\n';
-      for (let i = 0; i < newIssues.length; i++) {
-        message += `${newIssues[i]} > ${newDesc[i]}\n${newLinks[i]}\n\n`;
-      }
+      // let message = "New issues found\n\n";
+      // for (let i = 0; i < newIssues.length; i++) {
+      //   message += `${newIssues[i]} > ${newDesc[i]}\n${newLinks[i]}\n\n`;
+      // }
       // send whatsapp notification for new issues
       // TODO: whatsapp notification not working outside local
       // message.length > 1600
@@ -133,12 +125,6 @@ const main = async () => {
   await browser.close();
 };
 
-app.listen(3000, () => {
-  console.log('Server listening on port 3000');
-});
+main();
 
-// import { Twilio } from "twilio";
-
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const client = new Twilio(accountSid, authToken);
+// setInterval(main, 60000 * 5);

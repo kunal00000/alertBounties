@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-cron.schedule('*/1 * * * *', () => {
+cron.schedule('*/4 * * * *', () => {
   main();
 });
 

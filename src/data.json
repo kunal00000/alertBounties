@@ -1,1 +1,1 @@
-{"issue":"udecode/plate#2713","desc":"$150Whitespace in pasted HTML is not handled according to the HTML spec","link":"https://github.com/udecode/plate/issues/2713"}
+{"issue":"inlang/monorepo#1485","desc":"$200sveltekit vercel adapter does not bundle paraglide, leading to unresolvable imports","link":"https://github.com/inlang/monorepo/issues/1485"}

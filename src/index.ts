@@ -3,15 +3,10 @@ import path from 'path';
 import puppeteer from 'puppeteer';
 import dotenv from 'dotenv';
 import { Resend } from 'resend';
-import { Twilio } from 'twilio';
+import { RESEND_API_KEY, SESSION_TOKEN } from './config';
 dotenv.config();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-
-const client = new Twilio(accountSid, authToken);
+const resend = new Resend(RESEND_API_KEY);
 
 const main = async () => {
   const browser = await puppeteer.launch({ headless: 'new' });
@@ -21,7 +16,7 @@ const main = async () => {
 
   await page.setCookie({
     name: '__Secure-next-auth.session-token',
-    value: 'a8c7f684-66c9-4406-95cc-800a564ab263',
+    value: SESSION_TOKEN,
     path: '/'
   });
 
@@ -98,25 +93,6 @@ const main = async () => {
         subject: 'New Issues Found',
         html: `${htmlmes}`
       });
-
-      // let message = "New issues found\n\n";
-      // for (let i = 0; i < newIssues.length; i++) {
-      //   message += `${newIssues[i]} > ${newDesc[i]}\n${newLinks[i]}\n\n`;
-      // }
-      // send whatsapp notification for new issues
-      // TODO: whatsapp notification not working outside local
-      // message.length > 1600
-      //   ? (message = message.slice(0, 1590) + "...")
-      //   : message;
-
-      // client.messages
-      //   .create({
-      //     body: `${message}`,
-      //     from: "whatsapp:+14155238886",
-      //     to: "whatsapp:+918851940254"
-      //   })
-      //   .then((logmessage) => console.log(logmessage.sid))
-      //   .catch((err) => console.log(err));
     }
   } else {
     console.log('No new issues found');
@@ -126,5 +102,3 @@ const main = async () => {
 };
 
 main();
-
-// setInterval(main, 60000 * 5);

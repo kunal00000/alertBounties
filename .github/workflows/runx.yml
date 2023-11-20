@@ -22,8 +22,6 @@ jobs:
       - name: Run Script
         run: npm run dev
         env:
-          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
       - name: Commit and Push Changes
         run: |

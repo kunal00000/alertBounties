@@ -3,7 +3,7 @@ import path from 'path';
 import puppeteer from 'puppeteer';
 import dotenv from 'dotenv';
 import { Resend } from 'resend';
-import { RESEND_API_KEY, SESSION_TOKEN } from './config';
+import { RESEND_API_KEY, SESSION_TOKEN, USER_EMAIL } from './config';
 dotenv.config();
 
 const resend = new Resend(RESEND_API_KEY);
@@ -89,7 +89,7 @@ const main = async () => {
       // send email notification for new issues
       resend.emails.send({
         from: 'onboarding@resend.dev',
-        to: 'kunalverma2468@gmail.com',
+        to: USER_EMAIL,
         subject: 'New Issues Found',
         html: `${htmlmes}`
       });

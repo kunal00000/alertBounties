@@ -23,6 +23,8 @@ jobs:
         run: npm run dev
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SESSION_TOKEN: ${{ secrets.SESSION_TOKEN }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
       - name: Commit and Push Changes
         run: |
           # Check if there are changes in the working directory

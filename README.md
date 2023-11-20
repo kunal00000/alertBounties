@@ -1,4 +1,4 @@
-# AlertBounties
+# Alert Bounties
 
 AlertBounties is a TypeScript Node.js project designed to keep you informed about new bounties on [Algora Console](https://console.algora.io). It utilizes Puppeteer for web scraping and Resend for email notifications.
 
@@ -26,11 +26,11 @@ To use AlertBounties, follow these steps:
   cp .env.example .env
 ```
 
-4. Add the following secrets to your forked repository's environment secrets:
+4. Add the following secrets to environment variables:
 
    - `RESEND_API_KEY`: Your Resend API key.
    - `SESSION_TOKEN`: The value of the '\_\_Secure-next-auth.session-token' cookie from [Algora Console](https://console.algora.io).
-   - `USER_EMAIL`: Your Resend login email.
+   - `USER_EMAIL`: Your Resend login email (this email is used to receive updates).
 
 5. Add the **RESEND_API_KEY** secret to your forked repository by following the steps outlined in the [GitHub Actions documentation](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
 

@@ -32,7 +32,7 @@ To use AlertBounties, follow these steps:
    - `SESSION_TOKEN`: The value of the '\_\_Secure-next-auth.session-token' cookie from [Algora Console](https://console.algora.io).
    - `USER_EMAIL`: Your Resend login email (this email is used to receive updates).
 
-5. Add the **RESEND_API_KEY** secret to your forked repository by following the steps outlined in the [GitHub Actions documentation](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
+5. Add the **RESEND_API_KEY**, **SESSION_TOKEN** and **USER_EMAIL** secret to your forked repository by following the steps outlined in the [GitHub Actions documentation](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
 
 ## Contributing
 

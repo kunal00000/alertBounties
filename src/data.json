@@ -1,1 +1,1 @@
-{"issue":"tailcallhq/graphql-benchmarks#42","desc":"$150Fix CI Workflow for Benchmark Execution and Result Handling","link":"https://github.com/tailcallhq/graphql-benchmarks/issues/42"}
+{"issue":"tailcallhq/tailcall#667","desc":"$150Server startup fails when query has a type other than `Query`","link":"https://github.com/tailcallhq/tailcall/issues/667"}

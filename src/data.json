@@ -1,1 +1,1 @@
-{"issue":"aietal/isaac#28","desc":"$150[ISAAC-490] Add LiteLLM to Python API and refactor Next.js AI Routes to Use LiteLLM Through Python API Instead of Direct OpenAI API Calls","link":"https://github.com/aietal/isaac/issues/28"}
+{"issue":"aietal/isaac#30","desc":"$50[ISAAC-437] Optimize PDF Loading Performance by Implementing Linearized Loading","link":"https://github.com/aietal/isaac/issues/30"}

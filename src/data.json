@@ -1,1 +1,1 @@
-{"issue":"zio/zio#8272","desc":"$175Automatic Layer Construction Does Not Properly Handle Fresh Layers","link":"https://github.com/zio/zio/issues/8272"}
+{"issue":"zio/zio#8611","desc":"$2,500Improve performance of fork/join by one order of magnitude as measured by ForkJoinBenchmark","link":"https://github.com/zio/zio/issues/8611"}

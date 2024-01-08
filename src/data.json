@@ -1,1 +1,1 @@
-{"issue":"zio/zio-schema#558","desc":"$150Add java.util.Currency as a Standard Type","link":"https://github.com/zio/zio-schema/issues/558"}
+{"issue":"zio/zio#8565","desc":"$100No test found when an exception is raised in the construction of a provided layer","link":"https://github.com/zio/zio/issues/8565"}

@@ -1,1 +1,1 @@
-{"issue":"trypromptly/LLMStack#141","desc":"$40Allow providing --host and --port from cli when running llmstack","link":"https://github.com/trypromptly/LLMStack/issues/141"}
+{"issue":"zio/zio-http#2625","desc":"$500Support custom encoding and decoding for Endpoint parameters (in, out, error)","link":"https://github.com/zio/zio-http/issues/2625"}

@@ -1,1 +1,1 @@
-{"issue":"vendure-ecommerce/vendure#2280","desc":"$100Search indices are not currency aware","link":"https://github.com/vendure-ecommerce/vendure/issues/2280"}
+{"issue":"vendure-ecommerce/vendure#1464","desc":"$30The `updatedAt` timestamp does not change for translatable entities when their translations are updated","link":"https://github.com/vendure-ecommerce/vendure/issues/1464"}

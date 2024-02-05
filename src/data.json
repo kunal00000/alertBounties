@@ -1,1 +1,1 @@
-{"issue":"Cap-go/terraform_clickhouse#2","desc":"$30Add auto backup to r2 every hours and keep only 24h","link":"https://github.com/Cap-go/terraform_clickhouse/issues/2"}
+{"issue":"Cap-go/terraform_clickhouse#4","desc":"$30Make config for failtoban for clickhouse access","link":"https://github.com/Cap-go/terraform_clickhouse/issues/4"}
